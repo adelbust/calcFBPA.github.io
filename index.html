@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>CALCULADORA CLASIFICACION 1ª Nacional</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      @media (max-width: 600px) {
+        .pagination {
+          flex-wrap: wrap;
+        }
+        .pagination button {
+          width: 100%;
+        }
+      }
+      /* Add a reset css */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* Add the font-family */
+      body {
+        font-family: "Open Sans", sans-serif;
+        background-color: #f2f2f2;
+      }
+
+      /* Add a style for the title */
+      h1 {
+        text-align: center;
+        font-size: 36px;
+        font-weight: 700;
+        margin-top: 30px;
+        color: #1e2c7c;
+      }
+
+      /* Add a style for the form */
+      form {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px #c9c9c9;
+        margin: 0 auto;
+        width: 80%;
+        max-width: 500px;
+      }
+
+      /* Add a style for the label */
+      label {
+        font-size: 18px;
+        font-weight: 700;
+        margin-top: 20px;
+        display: block;
+      }
+
+      /* Add a style for the select */
+      select {
+        width: 100%;
+        height: 40px;
+        margin-top: 10px;
+        padding: 10px;
+        font-size: 18px;
+        border-radius: 5px;
+        border: 1px solid #c9c9c9;
+        box-shadow: 0px 0px 5px #c9c9c9 inset;
+      }
+
+      /* Add a style for the logo */
+      .logo {
+        display: block;
+        margin: 0 auto;
+        margin-top: 30px;
+        width: 150px;
+      }
+
+      .pagination {
+        display: flex;
+        justify-content: center;
+      }
+
+      .pagination button {
+        background-color: #1e2c7c;
+        color: white;
+        padding: 8px 16px;
+        text-decoration: none;
+        margin: 8px;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+      }
+
+      .pagination button:hover {
+        background-color: #3e8e41;
+      }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <img
+      src="https://www.fbpa.es/imagenes/logo-fbpa.png"
+      alt="FBPA logo"
+      class="logo"
+    />
+    <h1>CALCULADORA CLASIFICACIÓN 1ª Nacional</h1>
+    <form>
+      <div class="partido-group jornada16">
+        <h3>Jornada 16</h3>
+        <div>
+          <label
+            >GRUPO DE CULTURA COVADONGA "B" <strong>DESCANSA</strong></label
+          >
+        </div>
+        <!-- Resto de partidos de la jornada 16 -->
+      </div>
+      <div class="partido-group jornada17">
+        <h3>Jornada 17</h3>
+        <div>
+          <label>SANFER-ADBA <strong>DESCANSA</strong></label>
+        </div>
+        <!-- Resto de partidos de la jornada 17 -->
+      </div>
+      <!-- Resto de jornadas -->
+    </form>
+    <!-- Botones para controlar la paginación -->
+    <div class="pagination">
+      <button class="pagination-item" id="prev">Anterior</button>
+      <button class="pagination-item" id="next">Siguiente</button>
+    </div>
+
+    <!-- Código JavaScript para la paginación -->
+    <script>
+      const jornadas = document.querySelectorAll(".partido-group");
+      let currentPage = 0;
+      function showPage() {
+        jornadas.forEach((jornada, index) => {
+          if (index === currentPage) {
+            jornada.style.display = "block";
+          } else {
+            jornada.style.display = "none";
+          }
+        });
+      }
+      showPage();
+      document.querySelector("#next").addEventListener("click", () => {
+        currentPage = Math.min(jornadas.length - 1, currentPage + 1);
+        showPage();
+      });
+      document.querySelector("#prev").addEventListener("click", () => {
+        currentPage = Math.max(0, currentPage - 1);
+        showPage();
+      });
+    </script>
+  </body>
+</html>
