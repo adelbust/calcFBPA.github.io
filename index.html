@@ -6,135 +6,11 @@
     <title>CALCULADORA CLASIFICACION 1ª Nacional</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" type="text/css">
     <link
       href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <style>
-      @media (max-width: 600px) {
-        .pagination {
-          flex-wrap: wrap;
-        }
-        .pagination button {
-          width: 100%;
-        }
-      }
-
-      @media only screen and (max-width: 600px) {
-        table {
-          width: 100%;
-        }
-
-        th,
-        td {
-          width: auto;
-          display: block;
-        }
-
-        th {
-          text-align: left;
-        }
-      }
-
-      /* Add a reset css */
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      /* Add the font-family */
-      body {
-        font-family: "Open Sans", sans-serif;
-        background-color: #f2f2f2;
-      }
-
-      /* Add a style for the title */
-      h1 {
-        text-align: center;
-        font-size: 36px;
-        font-weight: 700;
-        margin-top: 30px;
-        color: #1e2c7c;
-      }
-
-      /* Add a style for the form */
-      form {
-        background-color: #fff;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0px 0px 10px #c9c9c9;
-        margin: 0 auto;
-        width: 80%;
-        max-width: 500px;
-      }
-
-      /* Add a style for the label */
-      label {
-        font-size: 18px;
-        font-weight: 700;
-        margin-top: 20px;
-        display: block;
-      }
-
-      /* Add a style for the select */
-      select {
-        width: 100%;
-        height: 40px;
-        margin-top: 10px;
-        padding: 10px;
-        font-size: 18px;
-        border-radius: 5px;
-        border: 1px solid #c9c9c9;
-        box-shadow: 0px 0px 5px #c9c9c9 inset;
-      }
-
-      /* Add a style for the logo */
-      .logo {
-        display: block;
-        margin: 0 auto;
-        margin-top: 30px;
-        width: 150px;
-      }
-
-      .pagination {
-        display: flex;
-        justify-content: center;
-      }
-
-      .pagination button {
-        background-color: #1e2c7c;
-        color: white;
-        padding: 8px 16px;
-        text-decoration: none;
-        margin: 8px;
-        border-radius: 5px;
-        border: none;
-        cursor: pointer;
-      }
-
-      .pagination button:hover {
-        background-color: #3e8e41;
-      }
-
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        font-size: 14px;
-      }
-
-      th,
-      td {
-        border: 1px solid #ddd;
-        padding: 8px;
-        text-align: left;
-      }
-
-      th {
-        background-color: #ddd;
-        font-weight: bold;
-      }
-    </style>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   </head>
@@ -150,21 +26,98 @@
     <table>
       <thead>
         <tr>
-          <th>Posición</th>
-          <th>Equipo</th>
+          <th>N°</th>
+          <th>Nombre</th>
           <th>Puntos</th>
         </tr>
       </thead>
-      <tbody id="clasificacion"></tbody>
+      <tbody id="clasificacion">
+        <tr>
+          <td class="poscion">1</td>
+          <td class="equipo">OVIEDO</td>
+          <td class="puntos">26</td>
+        </tr>
+        <tr>
+          <td class="poscion">2</td>
+          <td class="equipo">ATLETICA</td>
+          <td class="puntos">26</td>
+        </tr>
+
+        <tr>
+          <td class="poscion">3</td>
+          <td class="equipo">CASTRILLÓN</td>
+          <td class="puntos">22</td>
+        </tr>
+
+        <tr>
+          <td class="poscion">4</td>
+          <td class="equipo">GIJON BASKET</td>
+          <td class="puntos">21</td>
+        </tr>
+
+        <tr>
+          <td class="poscion">5</td>
+          <td class="equipo">GRUPO</td>
+          <td class="puntos">20</td>
+        </tr>
+
+        <tr>
+          <td class="poscion">6</td>
+          <td class="equipo">ARTCHIVO</td>
+          <td class="puntos">19</td>
+        </tr>
+
+        <tr>
+          <td class="poscion">7</td>
+          <td class="equipo">NOREÑA</td>
+          <td class="puntos">19</td>
+        </tr>
+
+
+        <tr>
+          <td class="poscion">8</td>
+          <td class="equipo">AVILES SUR</td>
+          <td class="puntos">19</td>
+        </tr>
+
+        <tr>
+          <td class="poscion">9</td>
+          <td class="equipo">PUMARIN</td>
+          <td class="puntos">19</td>
+        </tr>
+
+        <tr>
+          <td class="poscion">10</td>
+          <td class="equipo">SANFER</td>
+          <td class="puntos">18</td>
+        </tr>
+
+        <tr>
+          <td class="poscion">11</td>
+          <td class="equipo">NAVIA</td>
+          <td class="puntos">16</td>
+        </tr>
+        <!-- ... -->
+      </tbody>
     </table>
+    
 
     <form>
+      <!-- Jornada 16 -->
       <div class="partido-group jornada16">
         <h3>Jornada 16</h3>
         <div>
-          <label
-            >GRUPO DE CULTURA COVADONGA "B" <strong>DESCANSA</strong></label
-          >
+          <label>GRUPO DE CULTURA COVADONGA "B" <strong>DESCANSA</strong></label>
+        </div>
+        <div>
+          <label>PUMARIN - NOREÑA</label>
+          <input type="radio" name="jornada16-1" value="Pumarin">Pumarin
+          <input type="radio" name="jornada16-1" value="Noreña">Noreña
+        </div>
+        <div>
+          <label>ATLETICA - OVIEDO</label>
+          <input type="radio" name="jornada16-2" value="Atletica">Atletica
+          <input type="radio" name="jornada16-2" value="Oviedo">Oviedo
         </div>
         <!-- Resto de partidos de la jornada 16 -->
       </div>
