@@ -107,6 +107,30 @@
     background-color: #ffd900;
   }
 
+  .clacular button:hover {
+    background-color: #ffd900;
+  }
+  .calcular {
+    display: flex;
+    justify-content: center;
+  }
+
+  .calcular button {
+    background-color: #1e2c7c;
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    margin: 8px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .calcular button:hover {
+    background-color: #ffd900;
+  }
+
+
   
 
   
