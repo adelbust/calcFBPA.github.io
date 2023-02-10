@@ -21,6 +21,9 @@
       class="logo"
     />
     <h1>Calcular clasificación 1ª Nacional</h1>
+    <div class="calcular">
+      <button class="calcular" id="reset">Reiniciar clasificación</button>
+    </div>
 
     <table>
       <thead>
@@ -408,78 +411,84 @@
         showPage();
       });
     </script>
-
     <script>
-      const clasificacion = document.querySelector("#clasificacion");
-      const selectPartidos = document.querySelectorAll("select");
+      document.addEventListener("DOMContentLoaded", function () {
+        const clasificacion = document.querySelector("#clasificacion");
+        const selects = document.querySelectorAll("select");
+        const resetBtn = document.querySelector("#reset");
 
-      // Array para almacenar los resultados
-      let resultados = [];
+        resetBtn.addEventListener("click", function () {
+          for (let i = 0; i < selects.length; i++) {
+            selects[i].selectedIndex = 0;
+          }
 
-      // Función para calcular la clasificación
-      function calcularClasificacion() {
-        // Recorremos todas las selecciones de partidos
-        selectPartidos.forEach((select) => {
-          // Si no está vacía y el partido aún no se ha contado, añadimos el resultado al array
-          if (select.value !== "" && !resultados.includes(select.value)) {
-            resultados.push(select.value);
+          for (let i = 0; i < clasificacion.children.length; i++) {
+            clasificacion.children[i].children[2].textContent = 0;
           }
         });
 
-        // Recorremos cada fila de la tabla clasificación
-        clasificacion.querySelectorAll("tr").forEach((fila) => {
-          // Si el equipo de la fila ha ganado un partido, sumamos 2 puntos
-          if (resultados.includes(fila.querySelector(".equipo").textContent)) {
-            let puntos = parseInt(fila.querySelector(".puntos").textContent);
-            fila.querySelector(".puntos").textContent = puntos + 2;
+        for (let i = 0; i < selects.length; i++) {
+          selects[i].addEventListener("change", function () {
+            const ganador = this.value;
+            const perdedor =
+              this.selectedIndex === 1
+                ? this.children[2].value
+                : this.children[1].value;
+            if (!ganador || !perdedor) return;
+
+            for (let j = 0; j < clasificacion.children.length; j++) {
+              if (
+                clasificacion.children[j].children[1].textContent === ganador
+              ) {
+                clasificacion.children[j].children[2].textContent =
+                  parseInt(
+                    clasificacion.children[j].children[2].textContent,
+                    10
+                  ) + 2;
+              }
+
+              if (
+                clasificacion.children[j].children[1].textContent === perdedor
+              ) {
+                clasificacion.children[j].children[2].textContent =
+                  parseInt(
+                    clasificacion.children[j].children[2].textContent,
+                    10
+                  ) + 1;
+              }
+            }
+
+            this.setAttribute("disabled", true);
+            updateClasificacion();
+          });
+        }
+
+        function updateClasificacion() {
+          const equipos = [];
+
+          for (let i = 0; i < clasificacion.children.length; i++) {
+            equipos.push({
+              nombre: clasificacion.children[i].children[1].textContent,
+              puntos: parseInt(
+                clasificacion.children[i].children[2].textContent,
+                10
+              ),
+            });
           }
-        });
 
-        // Añadimos 1 punto al equipo no seleccionado
-        // Añadimos 1 punto al equipo no seleccionado
-        selectPartidos.forEach((select) => {
-          if (select.value !== "") {
-            // Obtenemos los equipos de la selección actual
-            let equipos = select.value.split(" - ");
-            let perdedor = equipos.filter(
-              (equipo) => !resultados.includes(equipo)
-            )[0];
+          equipos.sort((a, b) => b.puntos - a.puntos);
 
-            // Si hay un equipo perdedor, sumamos 1 punto
-            if (perdedor) {
-              clasificacion.querySelectorAll("tr").forEach((fila) => {
-                if (fila.querySelector(".equipo").textContent === perdedor) {
-                  let puntos = parseInt(
-                    fila.querySelector(".puntos").textContent
-                  );
-                  fila.querySelector(".puntos").textContent = puntos + 1;
-                }
-              });
+          for (let i = 0; i < equipos.length; i++) {
+            for (let j = 0; j < clasificacion.children.length; j++) {
+              if (
+                clasificacion.children[j].children[1].textContent ===
+                equipos[i].nombre
+              ) {
+                clasificacion.children[j].children[0].textContent = i + 1;
+              }
             }
           }
-        });
-
-        
-
-        // Ordenamos la tabla según los puntos
-        let filasOrdenadas = Array.from(
-          clasificacion.querySelectorAll("tr")
-        ).sort(
-          (a, b) =>
-            parseInt(b.querySelector(".puntos").textContent) -
-            parseInt(a.querySelector(".puntos").textContent)
-        );
-
-        // Actualizamos la posición de cada equipo en la tabla
-        filasOrdenadas.forEach((fila, index) => {
-          fila.querySelector(".poscion").textContent = index + 1;
-          clasificacion.appendChild(fila);
-        });
-      }
-
-      // Asignamos la función a cada selección de partidos
-      selectPartidos.forEach((select) => {
-        select.addEventListener("change", calcularClasificacion);
+        }
       });
     </script>
   </body>
