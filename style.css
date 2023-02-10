@@ -1,10 +1,5 @@
 @media (max-width: 600px) {
-    .pagination {
-      flex-wrap: wrap;
-    }
-    .pagination button {
-      width: 100%;
-    }
+    
   }
 
   @media only screen and (max-width: 600px) {
@@ -107,7 +102,8 @@
     background-color: #ffd900;
   }
 
-  .clacular button:hover {
+
+  .caLcular button:hover {
     background-color: #ffd900;
   }
   .calcular {
