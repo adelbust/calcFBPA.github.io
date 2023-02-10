@@ -19,6 +19,23 @@
           width: 100%;
         }
       }
+
+      @media only screen and (max-width: 600px) {
+        table {
+          width: 100%;
+        }
+
+        th,
+        td {
+          width: auto;
+          display: block;
+        }
+
+        th {
+          text-align: left;
+        }
+      }
+
       /* Add a reset css */
       * {
         margin: 0;
@@ -99,6 +116,24 @@
       .pagination button:hover {
         background-color: #3e8e41;
       }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 14px;
+      }
+
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+      }
+
+      th {
+        background-color: #ddd;
+        font-weight: bold;
+      }
     </style>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -110,6 +145,19 @@
       class="logo"
     />
     <h1>CALCULADORA CLASIFICACIÓN 1ª Nacional</h1>
+
+    <h2>Clasificación</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Posición</th>
+          <th>Equipo</th>
+          <th>Puntos</th>
+        </tr>
+      </thead>
+      <tbody id="clasificacion"></tbody>
+    </table>
+
     <form>
       <div class="partido-group jornada16">
         <h3>Jornada 16</h3>
