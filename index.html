@@ -411,85 +411,48 @@
         showPage();
       });
     </script>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const clasificacion = document.querySelector("#clasificacion");
-        const selects = document.querySelectorAll("select");
-        const resetBtn = document.querySelector("#reset");
-
-        resetBtn.addEventListener("click", function () {
-          for (let i = 0; i < selects.length; i++) {
-            selects[i].selectedIndex = 0;
-          }
-
-          for (let i = 0; i < clasificacion.children.length; i++) {
-            clasificacion.children[i].children[2].textContent = 0;
-          }
-        });
-
-        for (let i = 0; i < selects.length; i++) {
-          selects[i].addEventListener("change", function () {
-            const ganador = this.value;
-            const perdedor =
-              this.selectedIndex === 1
-                ? this.children[2].value
-                : this.children[1].value;
-            if (!ganador || !perdedor) return;
-
-            for (let j = 0; j < clasificacion.children.length; j++) {
-              if (
-                clasificacion.children[j].children[1].textContent === ganador
-              ) {
-                clasificacion.children[j].children[2].textContent =
-                  parseInt(
-                    clasificacion.children[j].children[2].textContent,
-                    10
-                  ) + 2;
-              }
-
-              if (
-                clasificacion.children[j].children[1].textContent === perdedor
-              ) {
-                clasificacion.children[j].children[2].textContent =
-                  parseInt(
-                    clasificacion.children[j].children[2].textContent,
-                    10
-                  ) + 1;
-              }
-            }
-
-            this.setAttribute("disabled", true);
-            updateClasificacion();
-          });
-        }
-
-        function updateClasificacion() {
-          const equipos = [];
-
-          for (let i = 0; i < clasificacion.children.length; i++) {
-            equipos.push({
-              nombre: clasificacion.children[i].children[1].textContent,
-              puntos: parseInt(
-                clasificacion.children[i].children[2].textContent,
-                10
-              ),
-            });
-          }
-
-          equipos.sort((a, b) => b.puntos - a.puntos);
-
-          for (let i = 0; i < equipos.length; i++) {
-            for (let j = 0; j < clasificacion.children.length; j++) {
-              if (
-                clasificacion.children[j].children[1].textContent ===
-                equipos[i].nombre
-              ) {
-                clasificacion.children[j].children[0].textContent = i + 1;
-              }
-            }
-          }
-        }
+   <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const clasificacion = document.querySelector('#clasificacion');
+      const selects = document.querySelectorAll('select');
+      const resetBtn = document.querySelector('#reset');
+    
+      resetBtn.addEventListener('click', function() {
+        location.reload();
       });
-    </script>
+    
+      for (let i = 0; i < selects.length; i++) {
+        selects[i].addEventListener('change', function() {
+          const ganador = this.value;
+          const perdedor = (this.selectedIndex === 1) ? this.children[2].value : this.children[1].value;
+          if (!ganador || !perdedor) return;
+    
+          for (let j = 0; j < clasificacion.children.length; j++) {
+            if (clasificacion.children[j].children[1].textContent === ganador) {
+              clasificacion.children[j].children[2].textContent = parseInt(clasificacion.children[j].children[2].textContent, 10) + 2;
+            }
+    
+            if (clasificacion.children[j].children[1].textContent === perdedor) {
+              clasificacion.children[j].children[2].textContent = parseInt(clasificacion.children[j].children[2].textContent, 10) + 1;
+            }
+          }
+    
+          this.setAttribute('disabled', true);
+          reordenarClasificacion();
+        });
+      }
+    
+      function reordenarClasificacion() {
+        const filas = [...clasificacion.children];
+        filas.sort((a, b) => parseInt(b.children[2].textContent, 10) - parseInt(a.children[2].textContent, 10));
+    
+        for (let i = 0; i < filas.length; i++) {
+          clasificacion.appendChild(filas[i]);
+          filas[i].children[0].textContent = i + 1;
+        }
+      }
+    });
+  </script>
+  
   </body>
 </html>
