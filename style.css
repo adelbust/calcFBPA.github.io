@@ -1,132 +1,134 @@
 @media (max-width: 600px) {
-    
+}
+
+@media only screen and (max-width: 600px) {
+  th {
+    text-align: left;
   }
+}
 
-  @media only screen and (max-width: 600px) {
-    
-  
+/* Add a reset css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    th {
-      text-align: left;
-    }
-  }
+/* Add the font-family */
+body {
+  font-family: "Open Sans", sans-serif;
+  background-color: #f2f2f2;
+}
 
-  /* Add a reset css */
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+/* Add a style for the title */
+h1 {
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+  margin-top: 30px;
+  color: #1e2c7c;
+}
 
-  /* Add the font-family */
-  body {
-    font-family: "Open Sans", sans-serif;
-    background-color: #f2f2f2;
-  }
+/* Add a style for the form */
+form {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px #c9c9c9;
+  margin: 0 auto;
+  width: 80%;
+  max-width: 500px;
+}
 
-  /* Add a style for the title */
-  h1 {
-    text-align: center;
-    font-size: 22px;
-    font-weight: 700;
-    margin-top: 30px;
-    color: #1e2c7c;
-  }
+table {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px #c9c9c9;
+  margin: 0 auto;
+  width: 80%;
+  max-width: 500px;
+}
 
-  /* Add a style for the form */
-  form {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px #c9c9c9;
-    margin: 0 auto;
-    width: 80%;
-    max-width: 500px;
-  }
+/* Add a style for the label */
+label {
+  font-size: 12px;
+  font-weight: 700;
+  margin-top: 10px;
+  display: block;
+}
 
-  table {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px #c9c9c9;
-    margin: 0 auto;
-    width: 80%;
-    max-width: 500px;
-  }
+/* Add a style for the select */
+select {
+  width: 100%;
+  height: 40px;
+  margin-top: 10px;
+  padding: 10px;
+  font-size: 10px;
+  border-radius: 5px;
+  border: 1px solid #c9c9c9;
+  box-shadow: 0px 0px 5px #c9c9c9 inset;
+}
 
-  /* Add a style for the label */
-  label {
-    font-size: 12px;
-    font-weight: 700;
-    margin-top: 10px;
-    display: block;
-  }
+/* Add a style for the logo */
+.logo {
+  display: block;
+  margin: 0 auto;
+  margin-top: 30px;
+  width: 150px;
+}
 
-  /* Add a style for the select */
-  select {
-    width: 100%;
-    height: 40px;
-    margin-top: 10px;
-    padding: 10px;
-    font-size: 10px;
-    border-radius: 5px;
-    border: 1px solid #c9c9c9;
-    box-shadow: 0px 0px 5px #c9c9c9 inset;
-  }
+.pagination {
+  display: flex;
+  justify-content: center;
+}
 
-  /* Add a style for the logo */
-  .logo {
-    display: block;
-    margin: 0 auto;
-    margin-top: 30px;
-    width: 150px;
-  }
+.pagination button {
+  background-color: #1e2c7c;
+  color: white;
+  padding: 8px 16px;
+  text-decoration: none;
+  margin: 8px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
 
-  .pagination {
-    display: flex;
-    justify-content: center;
-  }
+.pagination button:hover {
+  background-color: #ffd900;
+}
 
-  .pagination button {
-    background-color: #1e2c7c;
-    color: white;
-    padding: 8px 16px;
-    text-decoration: none;
-    margin: 8px;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-  }
+.caLcular button:hover {
+  background-color: #ffd900;
+}
+.calcular {
+  display: flex;
+  justify-content: center;
+}
 
-  .pagination button:hover {
-    background-color: #ffd900;
-  }
+.calcular button {
+  background-color: #1e2c7c;
+  color: white;
+  padding: 8px 16px;
+  text-decoration: none;
+  margin: 8px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
 
+.calcular button:hover {
+  background-color: #ffd900;
+}
 
-  .caLcular button:hover {
-    background-color: #ffd900;
-  }
-  .calcular {
-    display: flex;
-    justify-content: center;
-  }
+.rojo {
+  color: red;
+}
+.naranja {
+  color: orange;
+}
 
-  .calcular button {
-    background-color: #1e2c7c;
-    color: white;
-    padding: 8px 16px;
-    text-decoration: none;
-    margin: 8px;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-  }
+.verde {
+  color: #1dc664;
+}
 
-  .calcular button:hover {
-    background-color: #ffd900;
-  }
-
-
-  
-
-  
