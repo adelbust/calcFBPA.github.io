@@ -175,3 +175,12 @@ select {
   text-align: center;
 }
 
+table {
+  
+  text-align: center;
+}
+
+th, td {
+  text-align: center;
+}
+
